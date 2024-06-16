@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Carrito{% endblock %}
+
+{% block content %}
+<section class="section__container">
+    <h2 class="section__header">Tu Carrito</h2>
+    <ul class="cart__list">
+        {% for cart_item in cart.cartitem_set.all %}
+            <li class="cart__item">
+                <div class="cart__item__info">
+                    <h4>{{ cart_item.item.name }}</h4>
+                    <p>Precio: ${{ cart_item.item.price|floatformat:2 }}</p>
+                    <p>Cantidad: {{ cart_item.quantity }}</p>
+                </div>
+                <div class="cart__item__actions">
+                    <form method="post" action="{% url 'remove_from_cart' cart_item.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">Eliminar</button>
+                    </form>
+                    <!-- Implementar formulario de modificación si es necesario -->
+                </div>
+            </li>
+        {% empty %}
+            <li>No tienes items en tu carrito.</li>
+        {% endfor %}
+    </ul>
+    <div class="cart__checkout">
+        <p>Total: ${{ cart.get_total_price|floatformat:2 }}</p>
+        <button class="btn">Proceder al Pago</button>
+    </div>
+    <div class="cart__actions">
+        <a href="{% url 'home' %}" class="btn">Seguir Comprando</a>
+    </div>
+</section>
+{% endblock %}

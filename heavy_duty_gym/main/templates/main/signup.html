@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<section class="auth__container">
+    <h2 class="auth__header">Registro</h2>
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <form method="post" class="auth__form">
+        {% csrf_token %}
+        <div class="auth__form-group">
+            <label for="id_username" class="auth__form-label">Usuario:</label>
+            {{ form.username }}
+        </div>
+        <div class="auth__form-group">
+            <label for="id_email" class="auth__form-label">Email:</label>
+            {{ form.email }}
+        </div>
+        <div class="auth__form-group">
+            <label for="id_password1" class="auth__form-label">Contraseña:</label>
+            {{ form.password1 }}
+        </div>
+        <div class="auth__form-group">
+            <label for="id_password2" class="auth__form-label">Confirmar Contraseña:</label>
+            {{ form.password2 }}
+        </div>
+        <button type="submit" class="auth__form-button">Registro</button>
+        <a href="{% url 'login' %}">¿Ya tienes una cuenta? Inicia Sesión</a>
+    </form>
+</section>
+{% endblock %}

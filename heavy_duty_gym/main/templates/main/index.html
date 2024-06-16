@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<header class="section__container header__container" role="banner">
+    <div class="header__content">
+        <span class="bg__blur"></span>
+        <span class="bg__blur header_blur"></span>
+        <h4>EFICIENCIA E INTENSIDAD</h4>
+        <h1><span>ENTRENA</span> INTELIGENTE</h1>
+        <p>Aprende a entrenar de manera minimalista, eficiente y orientado a la máxima intensidad. Únete a nosotros para llevar tu cuerpo al límite!</p>
+        <a href="#" class="btn">Únete</a>
+    </div>
+    <div class="header__image">
+        <img src="{% static 'images/header.png' %}" alt="header">
+    </div>
+</header>
+
+<section class="section__container price__container" role="region" aria-labelledby="price-header">
+    <h2 id="price-header" class="section__header">NUESTROS PRECIOS</h2>
+    <p class="section__subheader">Tenemos distintos planes para ti!</p>
+    <div class="price__grid">
+        {% for item in items %}
+        <div class="price__card">
+            <div class="price__card__content">
+                <h4>{{ item.name }}</h4>
+                <h3>${{ item.price|floatformat:2 }}</h3>
+                <p>
+                    <i class="ri-checkbox-circle-line"></i>
+                    {{ item.description }}
+                </p>
+            </div>
+            <form method="post" action="{% url 'add_to_cart' item.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn price__btn">Comprar</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="review" role="region" aria-labelledby="review-header">
+    <div class="section__container review__container">
+        <span><i class="ri-double-quotes-r"></i></span>
+        <div class="review__content">
+            <h4 id="review-header">OPINIONES DE MIEMBROS</h4>
+            <p>Desde mi perspectiva, un gimnasio de "Heavy Duty" tiene como objetivo principal maximizar el tiempo y los esfuerzos de sus miembros. Este enfoque se basa en la premisa de que con un entrenamiento muy intenso y enfocado en levantamiento de pesas pesadas y técnicas avanzadas de sobrecarga, se puede lograr un progreso significativo en fuerza y tamaño muscular en sesiones de entrenamiento más cortas y menos frecuentes que los métodos convencionales.</p>
+            <div class="review__rating">
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+            </div>
+            <div class="review__footer">
+                <div class="review__member">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Arthur_Jones_Portrait.jpg" alt="member">
+                    <div class="review_member__details">
+                        <h4>Arthur Jones</h4>
+                        <p>Inventor</p>
+                    </div>
+                </div>
+                <div class="review__nav">
+                    <span><i class="ri-arrow-left-line"></i></span>
+                    <span><i class="ri-arrow-right-line"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

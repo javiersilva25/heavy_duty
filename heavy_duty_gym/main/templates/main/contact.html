@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<section class="auth__container">
+    <h2 class="auth__header">Contacto</h2>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form method="post" class="auth__form">
+        {% csrf_token %}
+        <div class="auth__form-group">
+            <label for="id_name" class="auth__form-label">Nombre:</label>
+            {{ form.name }}
+        </div>
+        <div class="auth__form-group">
+            <label for="id_email" class="auth__form-label">Email:</label>
+            {{ form.email }}
+        </div>
+        <div class="auth__form-group">
+            <label for="id_message" class="auth__form-label">Mensaje:</label>
+            {{ form.message }}
+        </div>
+        <button type="submit" class="auth__form-button">Enviar</button>
+    </form>
+</section>
+{% endblock %}

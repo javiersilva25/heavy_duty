@@ -1,0 +1,39 @@
+{% load static %}
+<footer class="section__container footer__container" role="contentinfo">
+    <span class="bg__blur"></span>
+    <span class="bg__blur footer__blur"></span>
+    <div class="footer__col">
+        <div class="footer__logo">
+            <img src="{% static 'images/logo.png' %}" alt="logo">
+        </div>
+        <p>Únete a la intensidad y eficiencia. No pierdas esta oportunidad de convertirte en un filósofo del culturismo.</p>
+        <div class="footer__socials">
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-fill"></i></a>
+        </div>
+    </div>
+    <div class="footer__col">
+        <h4>Compañía</h4>
+        <a href="#">Negocios</a>
+        <a href="#">Franquicia</a>
+        <a href="#">Patrocinadores</a>
+        <a href="#">Conexiones</a>
+    </div>
+    <div class="footer__col">
+        <h4>Sobre nosotros</h4>
+        <a href="#">Blogs</a>
+        <a href="#">Seguridad</a>
+        <a href="#">Carreras</a>
+    </div>
+    <div class="footer__col">
+        <h4>Contacto</h4>
+        <a href="{% url 'contact' %}">Contáctanos</a>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Calculadora BMI</a>
+    </div>
+</footer>
+<div class="footer__bar">
+    Javier Silva Villalobos.
+</div>

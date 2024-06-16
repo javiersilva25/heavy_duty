@@ -1,0 +1,29 @@
+[
+    {
+        "model": "main.item",
+        "pk": 1,
+        "fields": {
+            "name": "Plan Mensual",
+            "price": 20.000,
+            "description": "Básico. A modo de probar nuestra metodología."
+        }
+    },
+    {
+        "model": "main.item",
+        "pk": 2,
+        "fields": {
+            "name": "Plan Semestral",
+            "price": 80.000,
+            "description": "Acceso a personal trainer. Decidido a utilizar el método Heavy Duty."
+        }
+    },
+    {
+        "model": "main.item",
+        "pk": 3,
+        "fields": {
+            "name": "Plan Anual",
+            "price": 148.000,
+            "description": "Acceso a plan nutricional. Abraza la intensidad máxima."
+        }
+    }
+]
