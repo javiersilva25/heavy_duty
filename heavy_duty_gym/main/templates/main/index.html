@@ -11,7 +11,7 @@
         <h4>EFICIENCIA E INTENSIDAD</h4>
         <h1><span>ENTRENA</span> INTELIGENTE</h1>
         <p>Aprende a entrenar de manera minimalista, eficiente y orientado a la máxima intensidad. Únete a nosotros para llevar tu cuerpo al límite!</p>
-        <a href="#" class="btn">Únete</a>
+        <a href="{% url 'signup' %}" class="btn">Únete</a>
     </div>
     <div class="header__image">
         <img src="{% static 'images/header.png' %}" alt="header">
@@ -26,7 +26,7 @@
         <div class="price__card">
             <div class="price__card__content">
                 <h4>{{ item.name }}</h4>
-                <h3>${{ item.price|floatformat:2 }}</h3>
+                <h3>${{ item.price|floatformat:0 }}</h3>
                 <p>
                     <i class="ri-checkbox-circle-line"></i>
                     {{ item.description }}
@@ -36,10 +36,14 @@
                 {% csrf_token %}
                 <button type="submit" class="btn price__btn">Comprar</button>
             </form>
+            {% if user.is_authenticated and user.is_superuser %}
+            <a href="{% url 'update_item' item.id %}" class="btn price__btn">Actualizar</a>
+            {% endif %}
         </div>
         {% endfor %}
     </div>
 </section>
+
 
 <section class="review" role="region" aria-labelledby="review-header">
     <div class="section__container review__container">

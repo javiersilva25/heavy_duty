@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Actualizar Servicio{% endblock %}
+
+{% block content %}
+<section class="auth__container">
+    <h2 class="auth__header">Actualizar Servicio</h2>
+    <form method="post" class="auth__form">
+        {% csrf_token %}
+        <div class="auth__form-group">
+            <label for="name" class="auth__form-label">Nombre:</label>
+            {{ form.name }}
+        </div>
+        <div class="auth__form-group">
+            <label for="price" class="auth__form-label">Precio:</label>
+            {{ form.price }}
+        </div>
+        <div class="auth__form-group">
+            <label for="description" class="auth__form-label">Descripción:</label>
+            {{ form.description }}
+        </div>
+        <button type="submit" class="auth__form-button">Actualizar</button>
+    </form>
+</section>
+{% endblock %}

@@ -5,6 +5,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import SignUpForm, ContactForm
 from .models import Item, Cart, CartItem
+from django.contrib.auth.decorators import user_passes_test
+from .models import Item
+from .forms import ItemForm
 
 def home(request):
     item_count = 0
@@ -20,6 +23,21 @@ def home(request):
     }
     
     return render(request, 'main/index.html', {'items': items, 'item_count': item_count, 'services': services})
+
+def admin_check(user):
+    return user.is_authenticated and user.is_superuser
+
+@user_passes_test(admin_check)
+def update_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirige a la página de inicio o a donde prefieras
+    else:
+        form = ItemForm(instance=item)
+    return render(request, 'main/update_item.html', {'form': form, 'item': item})
 
 def signup(request):
     if request.method == 'POST':
