@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'heavy_duty_gym',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'Cane24',
         'HOST': 'localhost',
         'PORT': '3306'}
 }
