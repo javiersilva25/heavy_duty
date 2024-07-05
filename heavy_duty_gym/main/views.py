@@ -108,3 +108,9 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, 'main/contact.html', {'form': form})
+
+from django.shortcuts import render
+
+def nosotros(request):
+    return render(request, 'main/nosotros.html')
+

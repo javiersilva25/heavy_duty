@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Nosotros{% endblock %}
+
+{% block content %}
+<section class="section__container">
+    <h2 class="section__header">Nuestra Historia</h2>
+    <p class="section__subheader">Descubre cómo el método Heavy Duty revolucionó el entrenamiento físico y dio vida a nuestro gimnasio.</p>
+    <div class="history__grid">
+        <div class="history__card">
+            <div class="history__card__image">
+                <img src="{% static 'images/mike_mentzer.jpg' %}" alt="Mike Mentzer">
+            </div>
+            <div class="history__card__content">
+                <h3>Mike Mentzer</h3>
+                <p>Mike Mentzer, pionero del Heavy Duty, revolucionó el entrenamiento físico en los años 70 con su enfoque de alta intensidad y bajo volumen. Su método se basa en la creencia de que menos es más, enfocándose en la calidad de los ejercicios y la recuperación adecuada.</p>
+            </div>
+        </div>
+        <div class="history__card">
+            <div class="history__card__image">
+                <img src="{% static 'images/dorian_yates.jpg' %}" alt="Dorian Yates">
+            </div>
+            <div class="history__card__content">
+                <h3>Dorian Yates</h3>
+                <p>Dorian Yates, seis veces Mr. Olympia, llevó el Heavy Duty a nuevas alturas. Su disciplina y dedicación a este método lo convirtieron en una leyenda en el mundo del culturismo. Yates demostró que la intensidad y la técnica correcta pueden superar al volumen de entrenamiento.</p>
+            </div>
+        </div>
+        <div class="history__card">
+            <div class="history__card__image">
+                <img src="{% static 'images/arthur_jones.jpg' %}" alt="Arthur Jones">
+            </div>
+            <div class="history__card__content">
+                <h3>Arthur Jones</h3>
+                <p>Arthur Jones, el cerebro detrás de las máquinas Nautilus, fue el innovador que proporcionó la base científica para el Heavy Duty. Su enfoque en la biomecánica y la eficiencia del movimiento transformó la forma en que entendemos el entrenamiento de fuerza.</p>
+            </div>
+        </div>
+    </div>
+    <div class="vision__container">
+        <h2 class="section__header">Nuestra Visión</h2>
+        <p class="section__subheader">Inspirados por los pioneros del Heavy Duty, nuestro gimnasio busca llevar el entrenamiento de alta intensidad a todos, promoviendo la eficiencia y la efectividad en cada sesión.</p>
+        <p>Nuestro objetivo es proporcionar un entorno donde cada persona pueda alcanzar su máximo potencial físico de manera segura y eficaz, siguiendo los principios del Heavy Duty. Creemos en entrenar de manera inteligente, enfocándonos en la calidad y no en la cantidad.</p>
+    </div>
+</section>
+{% endblock %}

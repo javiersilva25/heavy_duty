@@ -5,18 +5,16 @@
     </div>
     <ul class="nav__links">
         <li class="link"><a href="{% url 'home' %}">Inicio</a></li>
-        <li class="link"><a href="#">Nosotros</a></li>
+        <li class="link"><a href="{% url 'nosotros' %}">Nosotros</a></li>
         <li class="link"><a href="{% url 'contact' %}">Contacto</a></li>
     </ul>
     <div class="nav__auth">
-        <div class="nav__buttons">
-            {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="btn nav__btn">Logout</a>
-            {% else %}
-                <a href="{% url 'login' %}" class="btn nav__btn">Login</a>
-                <a href="{% url 'signup' %}" class="btn nav__btn">Sign Up</a>
-            {% endif %}
-        </div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn nav__btn">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn nav__btn">Login</a>
+            <a href="{% url 'signup' %}" class="btn nav__btn">Sign Up</a>
+        {% endif %}
         <a href="{% url 'cart' %}" class="cart__icon-btn" aria-label="Carrito de compras">
             <i class="ri-shopping-cart-line" aria-hidden="true"></i>
             {% if user.is_authenticated %}
@@ -25,4 +23,5 @@
         </a>
     </div>
 </nav>
+
 
