@@ -730,7 +730,15 @@ nav {
     color: var(--secondary-color-dark);
 }
 
-/* Media Queries */
+.alert-danger{
+    color: #ffffff;
+}
+
+.alert-contact{
+    color: #ffffff;
+}
+
+
 @media (max-width: 900px) {
     .nav__links {
         display: none;

@@ -7,9 +7,9 @@
 <section class="auth__container">
     <h2 class="auth__header">Contacto</h2>
     {% if messages %}
-        <div class="messages">
+        <div class="messages alert-contact">
             {% for message in messages %}
-                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+                <div class="alert-contact {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
             {% endfor %}
         </div>
     {% endif %}

@@ -8,6 +8,9 @@ from .models import Item, Cart, CartItem
 from django.contrib.auth.decorators import user_passes_test
 from .models import Item
 from .forms import ItemForm
+from django.core.mail import send_mail
+from django.conf import settings
+import ssl
 
 def home(request):
     item_count = 0
@@ -94,13 +97,7 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            send_mail(
-                f"Message from {form.cleaned_data['name']}",
-                form.cleaned_data['message'],
-                form.cleaned_data['email'],
-                ['your_email@example.com'],
-                fail_silently=False,
-            )
+            form.save()
             messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
             return redirect('contact')
         else:
@@ -108,8 +105,6 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, 'main/contact.html', {'form': form})
-
-from django.shortcuts import render
 
 def nosotros(request):
     return render(request, 'main/nosotros.html')
