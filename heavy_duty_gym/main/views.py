@@ -8,7 +8,6 @@ from .models import Item, Cart, CartItem
 from django.contrib.auth.decorators import user_passes_test
 from .models import Item
 from .forms import ItemForm
-from django.conf import settings
 
 def home(request):
     item_count = 0
