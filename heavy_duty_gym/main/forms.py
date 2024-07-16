@@ -29,7 +29,7 @@ class SignUpForm(UserCreationForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ['name', 'email', 'message']  # Asegúrate de que los campos coincidan con los del modelo
+        fields = ['name', 'email', 'message']
 
 class ItemForm(forms.ModelForm):
     class Meta:
