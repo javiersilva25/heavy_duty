@@ -37,7 +37,7 @@ def update_item(request, item_id):
         form = ItemForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Redirige a la página de inicio o a donde prefieras
+            return redirect('home')
     else:
         form = ItemForm(instance=item)
     return render(request, 'main/update_item.html', {'form': form, 'item': item})
